@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {ChevronRight, Plus} from 'lucide-react';
+import question from './question.json'
 
 export const AuthScreen = () => {
     const [email, setEmail] = useState("");
     const handleForm = (e)=>{
         e.preventDefault()
     }
+    
+    
     return (
     <div className="hero-bg relative">
             {/* Navbar */}
@@ -52,7 +55,7 @@ export const AuthScreen = () => {
                     <video 
                         className='absolute top-1/2 left-1/2     -translate-x-1/2 -translate-y-1/2 h-1/2 z-10'
                         type='video/mp4'
-                        playInLine
+                        playinline="true"
                         autoPlay={true}
                         muted
                         loop
@@ -126,19 +129,42 @@ Phone, Laptop, Teblet, and TV..
          {/* Separator */}
         <div className='h-2 w-full bg-[#232323]'></div>
 
-        <div className="py-10 bg-black text-white">
+        <div className="py-10 bg-black text-white ">
             <div className="flex flex-col justify-center items-center max-w-6xl mx-auto">
                 <div className="flex-1 mb-8 text-4xl md:text-5xl font-bold">
                     <h1>Frequently Asked Questions</h1>
                 </div>
                 <div className="flex-1 w-full ">
                     <ul className="list-none w-11/12 px-4 my-0 mx-auto">
-                        <li className="w-full py-3 px-4 bg-[#4D4848] flex justify-between items-center text-xl md:2xl mb-2">
-                            <p>What is Netflix?</p>
-                            <Plus className=" size-6 "/>
-                        </li>
-                        
+                        {
+                            question.map((item, index)=>{
+                                return <li className="w-full text-xl md:2xl mb-2" id={index}>
+                                    <div className='py-3 px-4 bg-[#4D4848] flex justify-between items-center mb-2'>
+                                        <p>{item.question}</p>
+                                        <Plus className=" size-6"/>    
+                                    </div>
+                                    <div className='bg-[#4D4848] overflow-hidden h-0 transition transition-all delay-600'>
+                                        <p>{item.answer}</p>   
+                                    </div>
+                                </li>
+                            })
+                        }
                     </ul>
+                </div>
+                <div className='flex-1'>
+                    <p className='text-xl md:text-2xl py-6'>Ready to watch? Enter your email to create or restart your membership.</p>
+                    <form className='flex flex-col md:flex-row gap-4 w-2/3 justify-center mx-auto' onSubmit={handleForm}>
+                        <input type="email" 
+                        className='px-2 md:px-4 py-2 md:w-2/3  border border-gray-700 rounded bg-[#4D4848] flex-1' 
+                        placeholder='you@example.com' 
+                        id='email' 
+                        value={email} 
+                        onChange={(e)=>{setEmail(e.target.value)}}/>
+                        <button className='bg-red-600 text-xl px-2 py-1 rounded flex justify-center items-center'>
+                        Get Started
+                        <ChevronRight className='size-6 md:size-8'/>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
