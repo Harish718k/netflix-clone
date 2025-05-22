@@ -54,8 +54,8 @@ export const SignupPage = () => {
               Sign Up
             </button>
             <div className="text-center text-gray-400">
-              Already a member?
-              <Link to={"/login"} className='text-red-500 hover:underline'> Sign in</Link>
+              Already a member? {" "}
+              <Link to={"/login"} className='text-red-500 hover:underline'>Sign in</Link>
             </div>
           </form>
         </div>

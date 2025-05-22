@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {ChevronRight} from 'lucide-react';
+import {ChevronRight, Plus} from 'lucide-react';
 
 export const AuthScreen = () => {
     const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export const AuthScreen = () => {
             {/* Navbar */}
         <header className='max-w-6xl mx-auto flex items-center justify-between p-4 pb-10'>
             <img src="/netflix-logo.png" alt="logo" className='w-32 md:w-48'/>
-            <Link to={"/"} className="text-white bg-red-600 py-1 px-2 rounded">
+            <Link to={"/login"} className="text-white bg-red-600 py-1 px-2 rounded">
                 Sign In
             </Link>
         </header>
@@ -35,7 +35,7 @@ export const AuthScreen = () => {
                     </button>
             </form>
         </div>
-
+        {/* Separator */}
         <div className='h-2 w-full bg-[#232323]'></div>
 
         {/* 1st section */}
@@ -45,7 +45,7 @@ export const AuthScreen = () => {
                     <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Enjoy on your TV</h2>
                     <p className="text-lg md:text-xl">
                         Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.
-                    </p>
+                    </p>           
                 </div>
                 <div className="flex-1 relative">
                     <img src="/tv.png" alt="TV image" className='mt-4 z-20 relative'/>
@@ -65,6 +65,83 @@ export const AuthScreen = () => {
             </div>
         </div>
 
+        {/* Separator */}
+        <div className='h-2 w-full bg-[#232323]'></div>
+        {/* 2nd section */}
+        <div className='py-10 bg-black text-white'>
+            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+                <div className="flex-1 relative">
+                    <img src="/stranger-things-lg.png" alt="TV image" className='mt-4 z-20 relative'/>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Enjoy on your TV</h2>
+                    <p className="text-lg md:text-xl">
+                        Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.
+                    </p>           
+                </div>
+            </div>
+        </div>
+
+        {/* Separator */}
+        <div className='h-2 w-full bg-[#232323]'></div>
+        {/* 3rd section */}
+        <div className='py-10 bg-black text-white'>
+            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+                <div className="flex-1 text-center md:text-left">
+                    <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Watch Anywhere</h2>
+                    <p className="text-lg md:text-xl">
+                        Stream unlimites movies and TV showson your 
+Phone, Laptop, Teblet, and TV..
+                    </p>           
+                </div>
+                <div className="flex-1 relative">
+                    <img src="/device-pile.png" alt="TV image" className='mt-4 z-20 relative'/>
+                    <img src='extraction.jpg'
+                        className='absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 z-10 w-[65%]'
+                       /> 
+                </div>
+            </div>
+        </div>
+
+        {/* Separator */}
+        <div className='h-2 w-full bg-[#232323]'></div>
+
+        {/* 4nd section */}
+        <div className='py-10 bg-black text-white'>
+            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+                <div className="flex-1 relative">
+                    <img src="/kids.png" alt="TV image" className='mt-4 z-20 relative'/>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                    <h2 className='text-4xl md:text-5xl font-extrabold mb-4 w-full md:w-110'>Create profiles for kids</h2>
+                    <p className="text-lg md:text-xl">
+                        Send children on adventures with their 
+                        favourite characters in a space made just for
+                        them- free with your membership.
+                    </p>           
+                </div>
+            </div>
+        </div>
+
+         {/* Separator */}
+        <div className='h-2 w-full bg-[#232323]'></div>
+
+        <div className="py-10 bg-black text-white">
+            <div className="flex flex-col justify-center items-center max-w-6xl mx-auto">
+                <div className="flex-1 mb-8 text-4xl md:text-5xl font-bold">
+                    <h1>Frequently Asked Questions</h1>
+                </div>
+                <div className="flex-1 w-full ">
+                    <ul className="list-none w-11/12 px-4 my-0 mx-auto">
+                        <li className="w-full py-3 px-4 bg-[#4D4848] flex justify-between items-center text-xl md:2xl mb-2">
+                            <p>What is Netflix?</p>
+                            <Plus className=" size-6 "/>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
