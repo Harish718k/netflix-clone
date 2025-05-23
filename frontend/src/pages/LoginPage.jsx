@@ -45,8 +45,8 @@ export const LoginPage = () => {
                   Login
                 </button>
                 <div className="text-center text-gray-400">
-                  Don't have an account?
-                  <Link to={"/signup"} className='text-red-500 hover:underline'> Sign up</Link>
+                  Don't have an account?{" "}
+                  <Link to={"/signup"} className='text-red-500 hover:underline'>Sign up</Link>
                 </div>
               </form>
             </div>

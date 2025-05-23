@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {ChevronRight, Plus} from 'lucide-react';
 import question from './question.json'
+import "./home.css"
 
 export const AuthScreen = () => {
     const [email, setEmail] = useState("");
@@ -9,6 +10,20 @@ export const AuthScreen = () => {
         e.preventDefault()
     }
     
+    const handleFqa = (event)=>{
+        var svg = event.target.parentNode
+        if(svg.tagName == "svg"){
+            var answer = svg.parentNode.parentNode.lastChild
+            answer.classList.toggle("active")
+            console.log(answer);  
+        } 
+        else if(svg.tagName == "DIV"){
+            var answer = svg.parentNode.lastChild
+            answer.classList.toggle("active")
+            console.log(answer);
+        }
+        
+    }
     
     return (
     <div className="hero-bg relative">
@@ -72,7 +87,7 @@ export const AuthScreen = () => {
         <div className='h-2 w-full bg-[#232323]'></div>
         {/* 2nd section */}
         <div className='py-10 bg-black text-white'>
-            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2">
                 <div className="flex-1 relative">
                     <img src="/stranger-things-lg.png" alt="TV image" className='mt-4 z-20 relative'/>
                 </div>
@@ -99,9 +114,21 @@ Phone, Laptop, Teblet, and TV..
                 </div>
                 <div className="flex-1 relative">
                     <img src="/device-pile.png" alt="TV image" className='mt-4 z-20 relative'/>
-                    <img src='extraction.jpg'
+                    {/* <img src='extraction.jpg'
                         className='absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-1/2 z-10 w-[65%]'
-                       /> 
+                       />  */}
+                    <video 
+                        className='absolute top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[46%] z-10'
+                        type='video/mp4'
+                        playinline="true"
+                        autoPlay={true}
+                        muted
+                        loop
+                    >
+                        <source src='/video-devices.m4v' 
+                        
+                        />
+                    </video>
                 </div>
             </div>
         </div>
@@ -111,7 +138,7 @@ Phone, Laptop, Teblet, and TV..
 
         {/* 4nd section */}
         <div className='py-10 bg-black text-white'>
-            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+            <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2">
                 <div className="flex-1 relative">
                     <img src="/kids.png" alt="TV image" className='mt-4 z-20 relative'/>
                 </div>
@@ -128,7 +155,7 @@ Phone, Laptop, Teblet, and TV..
 
          {/* Separator */}
         <div className='h-2 w-full bg-[#232323]'></div>
-
+        {/* FQA Section */}
         <div className="py-10 bg-black text-white ">
             <div className="flex flex-col justify-center items-center max-w-6xl mx-auto">
                 <div className="flex-1 mb-8 text-4xl md:text-5xl font-bold">
@@ -138,12 +165,12 @@ Phone, Laptop, Teblet, and TV..
                     <ul className="list-none w-11/12 px-4 my-0 mx-auto">
                         {
                             question.map((item, index)=>{
-                                return <li className="w-full text-xl md:2xl mb-2" id={index}>
+                                return <li className="w-full text-xl md:2xl mb-2" id={index} >
                                     <div className='py-3 px-4 bg-[#4D4848] flex justify-between items-center mb-2'>
                                         <p>{item.question}</p>
-                                        <Plus className=" size-6"/>    
+                                        <Plus className=" size-6 cursor-pointer" onClick={handleFqa}/>    
                                     </div>
-                                    <div className='bg-[#4D4848] overflow-hidden h-0 transition transition-all delay-600'>
+                                    <div className='bg-[#4D4848] overflow-hidden h-0 answer'>
                                         <p>{item.answer}</p>   
                                     </div>
                                 </li>
