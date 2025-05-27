@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {ChevronRight, Plus} from 'lucide-react';
 import question from './question.json'
 import "./home.css"
 
 export const AuthScreen = () => {
     const [email, setEmail] = useState("");
+    const navigate = useNavigate();
     const handleForm = (e)=>{
         e.preventDefault()
+        navigate("/signup?email="+email)
     }
     
     const handleFqa = (event)=>{
