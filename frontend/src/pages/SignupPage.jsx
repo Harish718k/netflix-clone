@@ -56,7 +56,7 @@ export const SignupPage = () => {
                 value={password} 
                 onChange={(e)=>{setPassword(e.target.value)}}/>
             </div>
-            <button className='w-full py-2 bg-red-600 text-white font-semibold rounded-md'>
+            <button className='w-full py-2 bg-red-600 text-white font-semibold rounded-md cursor-pointer'>
               Sign Up
             </button>
             <div className="text-center text-gray-400">
