@@ -2,6 +2,7 @@ import { LogOut, Menu, Search } from 'lucide-react';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../store/AuthUser';
+import { useContentStore } from '../store/content';
 
 export const Navbar = () => {
     const [isMoblieMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,9 +11,11 @@ export const Navbar = () => {
     const toggleMoblieView = ()=>{
         setIsMobileMenuOpen(!isMoblieMenuOpen)
     }
+
+    const {setContentType} = useContentStore()
   return (
-    <header className='max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20'>
-        <div className="flex items-center gap-10 z-50">
+    <header className='max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20 z-50'>
+        <div className="flex items-center gap-10">
             <Link to="/">
                 <img src="/netflix-logo.png" alt="netflix logo" className='w-32 sm:w-40'/>
             </Link>
@@ -20,13 +23,13 @@ export const Navbar = () => {
             {/* desktop navbar items*/}
 
             <div className="hidden sm:flex gap-2 items-center">
-                <Link to="/" className='hover:underline' onClick={toggleMoblieView}>
+                <Link to="/" className='hover:underline' onClick={()=>{setContentType("movie")}}>
                     Movies
                 </Link>
-                <Link to="/" className='hover:underline' onClick={toggleMoblieView}>
+                <Link to="/" className='hover:underline' onClick={()=>{setContentType("tv")}}>
                     Tv shows
                 </Link>
-                <Link to="/" className='hover:underline' onClick={toggleMoblieView}>
+                <Link to="/" className='hover:underline'>
                     Search History
                 </Link>
             </div>
