@@ -29,14 +29,14 @@ export const Navbar = () => {
                 <Link to="/" className='hover:underline' onClick={()=>{setContentType("tv")}}>
                     Tv shows
                 </Link>
-                <Link to="/" className='hover:underline'>
+                <Link to="/history" className='hover:underline'>
                     Search History
                 </Link>
             </div>
         </div>
 
         <div className="flex gap-2 items-center">
-            <Link to="/">
+            <Link to="/search">
                 <Search className='size-6 cursor-pointer' />
             </Link>
             <img src={user.image} alt="Avatar" className='h-8 cursor-pointer rounded'/>
@@ -55,7 +55,7 @@ export const Navbar = () => {
                 <Link to="/" className='hover:underline p-2 block' onClick={toggleMoblieView}>
                     Tv shows
                 </Link>
-                <Link to="/" className='hover:underline p-2 block' onClick={toggleMoblieView}>
+                <Link to="/history" className='hover:underline p-2 block' onClick={toggleMoblieView}>
                     Search History
                 </Link>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {ChevronRight, Plus} from 'lucide-react';
-import question from './question.json'
+import question from '../../store/question.json';
 import "./home.css"
 
 export const AuthScreen = () => {
