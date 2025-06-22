@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useContentStore } from '../store/content'
-import axios from 'axios';
+import axios from '../config/axiosConfig.js';
 import { SMALL_IMG_BASE_URL } from '../utils/constants';
 import {ChevronLeft, ChevronRight} from 'lucide-react'
 
