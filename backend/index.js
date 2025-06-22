@@ -19,7 +19,7 @@ const PORT = ENV_VARS.PORT
 
 app.use(cors(
     {
-        origin: ["https://netflix-clone-8a7v.vercel.app"],
+        origin: ['http://localhost:5173' , "https://netflix-clone-iota-coral.vercel.app/"],
         methods: ["POST","GET"],
         credentials: true
     }    
