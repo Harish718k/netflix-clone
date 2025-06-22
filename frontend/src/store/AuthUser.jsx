@@ -1,5 +1,5 @@
 
-import axios from './axiosConfig';
+import axios from '../axiosConfig';
 import React from 'react'
 import toast from 'react-hot-toast'
 import {create} from 'zustand'
