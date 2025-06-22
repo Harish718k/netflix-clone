@@ -5,6 +5,7 @@ import movieRoutes from "./routes/movie.route.js";
 import tvRoutes from "./routes/tv.route.js";
 import searchRoutes from "./routes/search.route.js";
 
+import cors from "cors"
 import cookieParser from "cookie-parser";
 
 import { ENV_VARS } from "./config/envVars.js";
@@ -15,6 +16,14 @@ import { protectRoute } from "./middleware/protectRoute.js";
 const app = express();
 
 const PORT = ENV_VARS.PORT
+
+app.use(cors(
+    {
+        origin: ["https://netflix-clone-8a7v.vercel.app"],
+        methods: ["POST","GET"],
+        credentials: true
+    }    
+))
 
 app.use(express.json()); // will allow us to parse the req.body
 app.use(cookieParser());
