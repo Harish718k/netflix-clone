@@ -17,13 +17,17 @@ const app = express();
 
 const PORT = ENV_VARS.PORT
 
-app.use(cors(
-    {
-        origin: ['http://localhost:5173' , "https://netflix-clone-iota-coral.vercel.app/"],
-        methods: ["POST","GET"],
-        credentials: true
-    }    
-))
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("CORS not allowed for this origin"));
+  },
+  credentials: true, // important if using cookies or auth headers
+}));
 
 app.use(express.json()); // will allow us to parse req.body
 app.use(cookieParser());
