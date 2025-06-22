@@ -25,7 +25,7 @@ app.use(cors(
     }    
 ))
 
-app.use(express.json()); // will allow us to parse the req.body
+app.use(express.json()); // will allow us to parse req.body
 app.use(cookieParser());
 
 app.use("/api/v1/auth", authRoutes);
